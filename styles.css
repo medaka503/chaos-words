@@ -68,7 +68,7 @@ body {
     }
 
     #strategy-image {
-        height: 300px;
+        height: 40vh;
     }
 
     #get-strategy-btn {
@@ -76,3 +76,4 @@ body {
         padding: 1rem 1rem;
     }
 }
+
