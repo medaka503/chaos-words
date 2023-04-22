@@ -2,7 +2,7 @@ body {
     background-color: black;
     color: white;
     font-family: 'Helvetica', Arial, sans-serif;
-    font-weight: 900; /* ウェイトを太くする */
+    font-weight: 900;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,7 +23,7 @@ body {
 
 .title {
     font-size: 2rem;
-    margin-top: 2rem;
+    margin-top: 0rem;
 }
 
 #strategy-text {
@@ -37,16 +37,15 @@ body {
     background-color: transparent;
     border: none;
     font-weight: 900;
-    padding: 2rem 2rem;
-    /* background-color: #007BFF; */
+    padding: 0rem 0rem;
     color: white;
     border: none;
     cursor: pointer;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 #get-strategy-btn:focus {
-    outline: none; /* ここを追加 */
+    outline: none;
 }
 
 #get-strategy-btn.hover {
@@ -63,17 +62,68 @@ body {
 /* モバイルデバイス用のスタイル */
 @media screen and (max-width: 480px) {
     .title {
-        font-size: 1.5rem;
-        margin-top: 1rem;
+        font-size: 1rem;
+        
     }
 
-    #strategy-image {
-        height: 40vh;
+    #strategy-text {
+        font-size: 2rem;
+    }
+
+    #get-strategy-btn {
+        font-size: 1rem;
+    }
+}
+
+/* タブレットデバイス用のスタイル */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .title {
+        font-size: 1rem;
+        
+    }
+
+    #strategy-text {
+        font-size: 2rem;
+    }
+
+    #get-strategy-btn {
+        font-size: 1rem;
+    }
+}
+
+/* 中型デスクトップデバイス用のスタイル */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .title {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
+        
+    }
+
+    #strategy-text {
+        font-size: 2rem;
     }
 
     #get-strategy-btn {
         font-size: 1.5rem;
-        padding: 1rem 1rem;
+        margin-bottom: 0.5rem;
     }
 }
 
+  /* 大型デスクトップデバイス用のスタイル */
+  @media screen and (min-width: 1025px) {
+    .title {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
+        
+    }
+
+    #strategy-text {
+        font-size: clamp(2rem, 4vw, 4rem); /* 最小サイズ, 適切なサイズ, 最大サイズ */
+        /* font-size: 4rem; */
+    }
+
+    #get-strategy-btn {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+}
