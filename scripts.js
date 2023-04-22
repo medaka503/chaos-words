@@ -1832,14 +1832,33 @@ const strategies = [
     // 他のフレーズを追加...
 ];
 
-const strategyText = document.getElementById("strategy-text");
+
+const strategyImage = document.getElementById("strategy-image");
 const getStrategyBtn = document.getElementById("get-strategy-btn");
 
 getStrategyBtn.addEventListener("click", () => {
-    const randomIndex = Math.floor(Math.random() * strategies.length);
-    /* strategyText.textContent = strategies[randomIndex];*/
-    strategyText.innerHTML = strategies[randomIndex];
-
+    changeImage();
 });
+
+// strategy-textをクリックしたときに画像を切り替えるイベントリスナーを追加
+strategyImage.addEventListener("click", () => {
+    changeImage();
+});
+
+// 画像の切り替え処理を関数にまとめる
+function changeImage() {
+    const randomIndex = Math.floor(Math.random() * strategies.length);
+    const newImageSrc = "sozai/" + strategies[randomIndex] + ".jpg";
+    const newImage = document.createElement("img");
+    newImage.src = newImageSrc;
+    newImage.style.opacity = 0;
+    newImage.style.animation = "slideIn 1s forwards";
+    strategyImage.append(newImage);
+    const oldImage = strategyImage.querySelector("img");
+    oldImage.style.animation = "slideUp 1s forwards";
+    setTimeout(() => {
+        oldImage.remove();
+    }, 1000);
+}
 
 
