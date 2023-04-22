@@ -59,3 +59,20 @@ body {
     transform: scale(1.1);
     transition: transform 0.5s;
 }
+
+/* モバイルデバイス用のスタイル */
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    #strategy-image {
+        height: 300px;
+    }
+
+    #get-strategy-btn {
+        font-size: 1.5rem;
+        padding: 1rem 1rem;
+    }
+}
