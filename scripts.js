@@ -1,18 +1,11 @@
 document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-        getStrategyBtn.click();
-        getStrategyBtn.classList.add("hover");
-    }
-});
-
-document.addEventListener("keyup", (event) => {
-    if (event.key === "Enter") {
-        getStrategyBtn.classList.remove("hover");
+        changeText();
     }
 });
 
 const strategies = [
-    /* <br>で改行*/
+    "カオスは、秩序の序曲である。",
     "水に流す",
     "過去の失敗から学ぶ",
     "まずは小さく始める",
@@ -1832,33 +1825,34 @@ const strategies = [
     // 他のフレーズを追加...
 ];
 
-
-const strategyImage = document.getElementById("strategy-image");
+const strategyText = document.getElementById("strategy-text");
 const getStrategyBtn = document.getElementById("get-strategy-btn");
 
-getStrategyBtn.addEventListener("click", () => {
-    changeImage();
+// 画面全体をクリックまたはタップしたときにテキストを切り替えるイベントリスナーを追加
+document.addEventListener("click", () => {
+    changeText();
 });
 
-// strategy-textをクリックしたときに画像を切り替えるイベントリスナーを追加
-strategyImage.addEventListener("click", () => {
-    changeImage();
+// エンターキーを押したときにテキストを切り替えるイベントリスナーを追加
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        changeText();
+        getStrategyBtn.classList.add("hover");
+    }
 });
 
-// 画像の切り替え処理を関数にまとめる
-function changeImage() {
+// エンターキーを離したときにボタンのスケールが戻るようにするイベントリスナーを追加
+document.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+        getStrategyBtn.classList.remove("hover");
+    }
+});
+
+// テキストの切り替え処理を関数にまとめる
+function changeText() {
     const randomIndex = Math.floor(Math.random() * strategies.length);
-    const newImageSrc = "sozai/" + strategies[randomIndex] + ".jpg";
-    const newImage = document.createElement("img");
-    newImage.src = newImageSrc;
-    newImage.style.opacity = 0;
-    newImage.style.animation = "slideIn 1s forwards";
-    strategyImage.append(newImage);
-    const oldImage = strategyImage.querySelector("img");
-    oldImage.style.animation = "slideUp 1s forwards";
-    setTimeout(() => {
-        oldImage.remove();
-    }, 1000);
+    strategyText.innerHTML = strategies[randomIndex];
 }
 
-
+// 初回表示時にstrategy-textを設定
+strategyText.innerHTML = strategies[0];
